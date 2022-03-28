@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void count(unsigned int n);
+void count(unsigned int n); 
 
 int main()
 {
