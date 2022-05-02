@@ -17,6 +17,6 @@ int main(void){
 	}
 	cout << coin_num;
 	
-	
+	 
 	return 0;
 }
