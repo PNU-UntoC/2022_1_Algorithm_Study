@@ -1,0 +1,29 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> solution(vector<int> lottos, vector<int> win_nums) {
+    vector<int> answer;
+    int zero = 0, find_size = 0;
+    for(int i = 0; i < lottos.size(); i++){
+        if(lottos[i] == 0) zero++;
+        auto it = find(win_nums.begin(), win_nums.end(), lottos[i]);
+        if(it != win_nums.end()){
+            find_size++;
+        }
+    }
+    
+    int free = 6 - find_size;
+    
+    if(find_size == 0){
+        if(zero == 0) answer.push_back(6);
+        else answer.push_back(free-zero+1);
+        answer.push_back(6);
+    }
+    else{
+        answer.push_back(free-zero+1);
+        answer.push_back(7-find_size);
+    }
+    return answer;
+}
