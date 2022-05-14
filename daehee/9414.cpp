@@ -37,6 +37,6 @@ void solve() {
             return;
         }
     }
-
+    
     cout << ans << "\n";
 }
