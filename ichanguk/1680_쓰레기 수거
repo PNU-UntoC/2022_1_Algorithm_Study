@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int T;
+	int W, N;
+	cin >> T;
+	int x_i, w_i;
+	int pos, capacity;
+	int distance;
+	for (int i = 0; i < T; i++) {
+		distance = 0;
+		capacity = 0;
+		pos = 0;
+		cin >> W >> N;
+		for (int j = 0; j < N; j++) {
+			cin >> x_i >> w_i;
+			distance += x_i - pos;
+			if (capacity + w_i > W)
+			{
+				distance += 2 * x_i;
+				capacity = w_i;
+			}
+			else if(capacity + w_i == W)
+			{
+				if (j == N - 1) {
+					break;
+				}
+				distance += 2 * x_i;
+				capacity = 0;
+			}
+			else {
+				capacity += w_i;
+			}
+			pos = x_i;
+		}
+		cout << distance + x_i << endl;
+	}
+	return 0;
+}
